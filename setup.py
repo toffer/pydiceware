@@ -10,12 +10,14 @@ config = {
     'url': '',
     'download_url': '',
     'author_email': 'tom@offermann.us',
-    'version': '0.1',
+    'version': '0.1.0',
+    'install_requires': ['randomSources'],
     'packages': ['diceware'],
     'package_data': {'diceware': ['data/beale.wordlist.asc',
                                   'data/diceware.wordlist.asc',
                                   'data/metadata.json']
                     },
+    'scripts': ['bin/diceware-passphrase.py'],
 }
 
 setup(**config)
