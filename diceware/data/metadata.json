@@ -1,0 +1,12 @@
+{
+    "beale": {
+        "author": "Alan Beale", 
+        "filename": "beale.wordlist.asc", 
+        "name": "Beale"
+    },
+    "diceware": {
+        "author": "Arnold Reinhold", 
+        "filename": "diceware.wordlist.asc", 
+        "name": "Diceware"
+    }
+}
