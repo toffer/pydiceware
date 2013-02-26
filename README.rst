@@ -54,7 +54,9 @@ Installation
 ============
 .. code-block:: bash
 
-    $ pip install pydiceware
+This package hasn't been uploaded to PyPI yet, so for now, it must be installed manually:
+
+    $ python setup.py install
 
 In order to run the included ``diceware-passphrase.py`` script, the following dependencies will also be installed:
 
