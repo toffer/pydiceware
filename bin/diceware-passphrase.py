@@ -18,7 +18,10 @@ import sys
 from docopt import docopt, printable_usage
 from schema import Schema, SchemaError, And, Use
 
-def main(args):
+def main(args=None):
+    if args is None:
+        args = docopt(__doc__)
+
     # What word lists are included in diceware package?
     avail_word_lists = diceware.Diceware.WORDLISTS_META.keys()
 
@@ -50,5 +53,4 @@ def main(args):
     print dw.passphrase(num_words=args['--words'])
 
 if __name__ == '__main__':
-    args = docopt(__doc__)
-    sys.exit(main(args))
+    sys.exit(main())
