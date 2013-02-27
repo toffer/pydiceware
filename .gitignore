@@ -6,3 +6,6 @@
 build
 dist
 sdist
+
+# Tests
+.tox
