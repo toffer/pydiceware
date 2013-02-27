@@ -1,6 +1,10 @@
 PyDiceware
 ===========
 
+.. image:: https://secure.travis-ci.org/toffer/pydiceware.png
+    :target: http://travis-ci.org/toffer/pydiceware
+    :alt: Build Status of the master branch
+
 *Create easy-to-remember, hard-to-guess passphrases using the Diceware algorithm.*
 
 What is Diceware?
