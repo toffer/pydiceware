@@ -38,8 +38,7 @@ class TestWordlistMethods(unittest.TestCase):
         self.assertEqual(self.wl.get(11), 'abase')
 
     def test_index_error(self):
-        with self.assertRaises(IndexError):
-            self.wl.get(12)
+        self.assertRaises(IndexError, self.wl.get, 12)
 
     def test_is_valid_false(self):
         self.assertFalse(self.wl.is_valid())
