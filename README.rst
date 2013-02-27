@@ -52,9 +52,9 @@ Personally, I like all of my random numbers to be imported from Australia, but, 
 
 Installation
 ============
-.. code-block:: bash
-
 This package hasn't been uploaded to PyPI yet, so for now, it must be installed manually:
+
+.. code-block:: bash
 
     $ python setup.py install
 
