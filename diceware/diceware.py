@@ -10,6 +10,7 @@ class Diceware(object):
 
     """
     _js = pkgutil.get_data('diceware', 'data/metadata.json')
+    _js = _js.decode('utf-8')
     WORDLISTS_META = json.loads(_js)
 
     def __init__(self, rng, data_source='diceware', wordlist=None):
@@ -20,6 +21,7 @@ class Diceware(object):
             # Make wordlist from one of packaged data files.
             meta = Diceware.WORDLISTS_META[data_source]
             data = pkgutil.get_data('diceware', 'data/%s' % meta['filename'])
+            data = data.decode('utf-8')
             self.wordlist = Wordlist(data.splitlines())
 
     def random_char(self, num_ok=True):

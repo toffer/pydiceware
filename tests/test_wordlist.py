@@ -7,7 +7,7 @@ from .context import TEST_DATA_FILE
 class TestWordlistInit(unittest.TestCase):
 
     def test_diceware_file_input(self):
-        with open(TEST_DATA_FILE, 'rb') as fh:
+        with open(TEST_DATA_FILE, 'r') as fh:
             wl = diceware.Wordlist(fh)
         self.assertEqual(len(wl), 12)
 
@@ -20,7 +20,7 @@ class TestWordlistInit(unittest.TestCase):
 class TestWordlistMethods(unittest.TestCase):
 
     def setUp(self):
-        with open(TEST_DATA_FILE, 'rb') as fh:
+        with open(TEST_DATA_FILE, 'r') as fh:
             self.wl = diceware.Wordlist(fh)
 
     def test_dump(self):

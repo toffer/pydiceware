@@ -20,7 +20,7 @@ class TestDicewareInit(unittest.TestCase):
 
     def test_init_ignore_data_source_nonnull_wordlist(self):
         rng = random.Random()
-        with open(TEST_DATA_FILE, 'rb') as fh:
+        with open(TEST_DATA_FILE, 'r') as fh:
             wl = diceware.Wordlist(fh)
         dw = diceware.Diceware(rng, data_source='diceware', wordlist=wl)
         self.assertEqual(len(dw.wordlist), 12)
@@ -30,7 +30,7 @@ class TestDicewareMethods(unittest.TestCase):
 
     def setUp(self):
         rng = random.Random()
-        with open(TEST_DATA_FILE, 'rb') as fh:
+        with open(TEST_DATA_FILE, 'r') as fh:
             wl = diceware.Wordlist(fh)
         self.dw = diceware.Diceware(rng, wordlist=wl)
 
