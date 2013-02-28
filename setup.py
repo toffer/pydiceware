@@ -17,5 +17,8 @@ setup(
                                'data/diceware.wordlist.asc',
                                'data/metadata.json']
                  },
-    scripts=['bin/diceware-passphrase.py'],
+    entry_points={
+        'console_scripts':
+            ['diceware-passphrase = diceware.main:main',]
+    }
 )
