@@ -11,6 +11,8 @@ Options:
                        [default: diceware]
 
 """
+from __future__ import print_function
+
 import diceware
 import randomSources
 import sys
@@ -44,13 +46,13 @@ def main(args=None):
         args = s.validate(args)
     except SchemaError as e:
         sys.stderr.write(str(e) + '\n')
-        print printable_usage(__doc__)
+        print(printable_usage(__doc__))
         return 2
 
     # And finally...get passphrase!
     rng = randomSources.QuantumRandom()
     dw = diceware.Diceware(rng, data_source=args['--source'])
-    print dw.passphrase(num_words=args['--words'])
+    print(dw.passphrase(num_words=args['--words']))
 
 if __name__ == '__main__':
     sys.exit(main())
