@@ -30,9 +30,10 @@ class Diceware(object):
         i = self.rng.randrange(0, len(self.PUNCT_MARKS))
         return self.PUNCT_MARKS[i]
 
-    def insert(self, char, passphrase):
-        i = self.rng.randrange(0, len(passphrase) + 1)
-        return passphrase[:i] + char + passphrase[i:]
+    def insert(self, sub, string, index=None):
+        if index is None:
+            index = self.rng.randrange(0, len(string) + 1)
+        return string[:index] + sub + string[index:]
 
     def password(self):
         """
