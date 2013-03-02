@@ -59,6 +59,12 @@ class TestDicewareMethods(unittest.TestCase):
         self.dw.rng.randrange = mock.Mock(side_effect=[1, 8, 11, 4, 6, 1, 22])
         self.assertEqual(self.dw.passphrase(add_char=True), expected)
 
+    def test_passphrase_with_num(self):
+        self.dw.rng.randrange = mock.Mock(side_effect=[10, 4, 4, 8])
+        result = self.dw.passphrase(num_words=2, add_num=True)
+        expected = "aback aa4a"
+        self.assertEqual(result, expected)
+
 
 if __name__ == '__main__':
     unittest.main()

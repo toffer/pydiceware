@@ -30,6 +30,9 @@ class Diceware(object):
         i = self.rng.randrange(0, len(self.PUNCT_MARKS))
         return self.PUNCT_MARKS[i]
 
+    def random_num(self):
+        return self.rng.randrange(0, 10)
+
     def insert(self, sub, string, index=None):
         if index is None:
             index = self.rng.randrange(0, len(string) + 1)
@@ -46,7 +49,7 @@ class Diceware(object):
         index = self.rng.randrange(0, len(self.wordlist))
         return self.wordlist.get(index)
 
-    def passphrase(self, num_words=5, add_char=False):
+    def passphrase(self, num_words=5, add_char=False, add_num=False):
         """
         Get passphrase.
 
@@ -58,5 +61,7 @@ class Diceware(object):
         passphrase = " ".join([self.password() for n in range(num_words)])
         if add_char:
             passphrase = self.insert(self.random_char(), passphrase)
+        if add_num:
+            passphrase = self.insert(str(self.random_num()), passphrase)
         return passphrase
 
