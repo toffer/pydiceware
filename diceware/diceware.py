@@ -13,6 +13,8 @@ class Diceware(object):
     _js = _js.decode('utf-8')
     WORDLISTS_META = json.loads(_js)
 
+    RANDOM_CHARS =  '~!#$%^&*()-=+[]\\{}:;"\'<>?/'
+
     def __init__(self, rng, data_source='diceware', wordlist=None):
         self.rng = rng
         if wordlist:
@@ -24,11 +26,13 @@ class Diceware(object):
             data = data.decode('utf-8')
             self.wordlist = Wordlist(data.splitlines())
 
-    def random_char(self, num_ok=True):
-        pass
+    def random_char(self):
+        i = self.rng.randrange(0, len(self.RANDOM_CHARS))
+        return self.RANDOM_CHARS[i]
 
-    def add_char(self, char, passphrase):
-        pass
+    def insert(self, char, passphrase):
+        i = self.rng.randrange(0, len(passphrase) + 1)
+        return passphrase[:i] + char + passphrase[i:]
 
     def password(self):
         """
@@ -41,7 +45,7 @@ class Diceware(object):
         index = self.rng.randrange(0, len(self.wordlist))
         return self.wordlist.get(index)
 
-    def passphrase(self, num_words=5):
+    def passphrase(self, num_words=5, add_char=False):
         """
         Get passphrase.
 
@@ -50,5 +54,8 @@ class Diceware(object):
             passwords separated by spaces.
 
         """
-        return " ".join([self.password() for n in range(num_words)])
+        passphrase = " ".join([self.password() for n in range(num_words)])
+        if add_char:
+            passphrase = self.insert(self.random_char(), passphrase)
+        return passphrase
 

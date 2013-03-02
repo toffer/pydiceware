@@ -33,6 +33,13 @@ class TestDicewareMethods(unittest.TestCase):
         with open(TEST_DATA_FILE, 'r') as fh:
             wl = diceware.Wordlist(fh)
         self.dw = diceware.Diceware(rng, wordlist=wl)
+        self.rand_chars = '~!#$%^&*()-=+[]\\{}:;"\'<>?/'
+
+    def test_rand_char(self):
+        self.assertTrue(self.dw.random_char() in self.rand_chars)
+
+    def test_insert(self):
+        self.assertTrue('x' in self.dw.insert('x', 'blah'))
 
     def test_password_first(self):
         self.dw.rng.randrange = mock.Mock(side_effect=[0])
@@ -46,6 +53,11 @@ class TestDicewareMethods(unittest.TestCase):
         expected = "a&p aba abase aaa aaron"
         self.dw.rng.randrange = mock.Mock(side_effect=[1, 8, 11, 4, 6])
         self.assertEqual(self.dw.passphrase(), expected)
+
+    def test_passphrase_with_char(self):
+        expected = "a&p aba abase aaa aaro!n"
+        self.dw.rng.randrange = mock.Mock(side_effect=[1, 8, 11, 4, 6, 1, 22])
+        self.assertEqual(self.dw.passphrase(add_char=True), expected)
 
 
 if __name__ == '__main__':
