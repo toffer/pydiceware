@@ -13,7 +13,7 @@ class Diceware(object):
     _js = _js.decode('utf-8')
     WORDLISTS_META = json.loads(_js)
 
-    RANDOM_CHARS =  '~!#$%^&*()-=+[]\\{}:;"\'<>?/'
+    PUNCT_MARKS =  '~!#$%^&*()-=+[]\\{}:;"\'<>?/'
 
     def __init__(self, rng, data_source='diceware', wordlist=None):
         self.rng = rng
@@ -27,8 +27,8 @@ class Diceware(object):
             self.wordlist = Wordlist(data.splitlines())
 
     def random_char(self):
-        i = self.rng.randrange(0, len(self.RANDOM_CHARS))
-        return self.RANDOM_CHARS[i]
+        i = self.rng.randrange(0, len(self.PUNCT_MARKS))
+        return self.PUNCT_MARKS[i]
 
     def insert(self, char, passphrase):
         i = self.rng.randrange(0, len(passphrase) + 1)
