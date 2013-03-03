@@ -37,7 +37,7 @@ Alternate random number generators (RNGs)
 -----------------------------------------
 * ``random.SystemRandom``
 
-  Class that uses the os.urandom() function for generating random numbers from sources provided by the operating system. This is used by default in the `diceware-passphrase` script.
+  Class that uses the os.urandom() function for generating random numbers from sources provided by the operating system. This is used by default in the ``diceware-passphrase`` script.
 
 * ``randomSources.QuantumRandom``
 
