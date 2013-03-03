@@ -1,7 +1,7 @@
 PyDiceware
 ===========
 
-.. image:: https://secure.travis-ci.org/toffer/pydiceware.png
+.. image:: https://travis-ci.org/toffer/pydiceware.png
     :target: http://travis-ci.org/toffer/pydiceware
     :alt: Build Status of the master branch
 
