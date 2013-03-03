@@ -14,7 +14,7 @@ Options:
 from __future__ import print_function
 
 import diceware
-import randomSources
+import random
 import sys
 
 from docopt import docopt, printable_usage
@@ -50,7 +50,7 @@ def main(args=None):
         return 2
 
     # And finally...get passphrase!
-    rng = randomSources.QuantumRandom()
+    rng = random.SystemRandom()
     dw = diceware.Diceware(rng, data_source=args['--source'])
     print(dw.passphrase(num_words=args['--words']))
 

@@ -37,7 +37,7 @@ Alternate random number generators (RNGs)
 -----------------------------------------
 * ``random.SystemRandom``
 
-  Class that uses the os.urandom() function for generating random numbers from sources provided by the operating system. 
+  Class that uses the os.urandom() function for generating random numbers from sources provided by the operating system. This is used by default in the `diceware-passphrase` script.
 
 * ``randomSources.QuantumRandom``
 
@@ -64,7 +64,6 @@ This package hasn't been uploaded to PyPI yet, so for now, it must be installed 
 
 In order to run the included ``diceware-passphrase.py`` script, the following dependencies will also be installed:
 
-* RandomSources
 * docopt
 * schema
 
