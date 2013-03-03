@@ -4,5 +4,7 @@ python:
   - "3.2"
   - "2.7"
   - "2.6"
-install: pip install six --use-mirrors
+install: 
+  - pip install six --use-mirrors
+  - pip install . --use-mirrors
 script:  nosetests
