@@ -11,7 +11,7 @@ setup(
     url='http://github.com/toffer/pydiceware',
     author_email='tom@offermann.us',
     version='0.1.0',
-    install_requires=['randomSources', 'docopt', 'schema'],
+    install_requires=['docopt', 'schema'],
     packages=['diceware'],
     package_data={'diceware': ['data/beale.wordlist.asc',
                                'data/diceware.wordlist.asc',
