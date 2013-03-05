@@ -2,13 +2,16 @@
 
 """
 Usage:
-  diceware-passphrase.py [--words=<num> --source=<src>]
+  diceware-passphrase.py [--words=<num>] [--source=<src>]
+                         [--add-char] [--add-num]
 
 Options:
   -h, --help           Show help.
   -w, --words=<num>    Number of words in passphrase [default: 5]
   -s, --source=<src>   Word list to use as password source.
                        [default: diceware]
+  -c, --add-char       Add a random character to passphrase.
+  -n, --add-num        Add a random number to passphrase.
 
 """
 from __future__ import print_function
@@ -39,6 +42,8 @@ def main(args=None):
                 '--source': And(lambda n: n in avail_word_lists,
                                 error=err_source
                                ),
+                '--add-char': bool,
+                '--add-num': bool,
               })
 
     # Validate args
@@ -52,7 +57,12 @@ def main(args=None):
     # And finally...get passphrase!
     rng = random.SystemRandom()
     dw = diceware.Diceware(rng, data_source=args['--source'])
-    print(dw.passphrase(num_words=args['--words']))
+    kwargs = {
+        'num_words': args['--words'],
+        'add_char': args['--add-char'],
+        'add_num': args['--add-num'],
+    }
+    print(dw.passphrase(**kwargs))
 
 if __name__ == '__main__':
     sys.exit(main())

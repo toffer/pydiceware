@@ -25,7 +25,8 @@ class TestDicewareMain(unittest.TestCase):
         sys.stderr = self.orig_stderr
 
     def test_main(self):
-        args = {'--words': '5', '--source':'diceware'}
+        args = {'--words': '5', '--source':'diceware',
+                '--add-char': False, '--add-num': False}
         main.main(args)
         output = self.stdout.getvalue()
         self.assertEqual(len(output.split()), 5)
