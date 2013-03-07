@@ -3,6 +3,15 @@ try:
 except ImportError:
     from distutils.core import setup
 
+install_requires = [
+    'docopt',
+    'schema',
+]
+
+tests_require = [
+    'six',
+]
+
 setup(
     name='pydiceware',
     description='Generate passphrases using the Diceware algorithm.',
@@ -11,7 +20,10 @@ setup(
     url='http://github.com/toffer/pydiceware',
     author_email='tom@offermann.us',
     version='0.1.0',
-    install_requires=['docopt', 'schema'],
+    install_requires=install_requires,
+    extras_require={
+        'tests': tests_require,
+    },
     packages=['diceware'],
     package_data={'diceware': ['data/beale.wordlist.asc',
                                'data/diceware.wordlist.asc',

@@ -5,6 +5,6 @@ python:
   - "2.7"
   - "2.6"
 install: 
-  - pip install six --use-mirrors
-  - pip install . --use-mirrors
-script:  nosetests
+  - pip install -e .[tests] --use-mirrors
+script:
+  - nosetests
