@@ -7,4 +7,4 @@ python:
 install: 
   - pip install -e .[tests] --use-mirrors
 script:
-  - nosetests
+  - python setup.py test

@@ -9,6 +9,8 @@ install_requires = [
 ]
 
 tests_require = [
+    'mock',
+    'pytest',
     'six',
 ]
 
@@ -24,6 +26,8 @@ setup(
     extras_require={
         'tests': tests_require,
     },
+    tests_require=tests_require,
+    test_suite="runtests.main",
     packages=['diceware'],
     package_data={'diceware': ['data/beale.wordlist.asc',
                                'data/diceware.wordlist.asc',
