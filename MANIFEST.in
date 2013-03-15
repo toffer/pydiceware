@@ -1,2 +1,9 @@
+include LICENSE.txt
 include README.rst
-include diceware/data/*
+include runtests.py
+
+recursive-include diceware/data *
+recursive-include tests *
+
+recursive-exclude tests *.pyc
+recursive-exclude tests *.pyo
